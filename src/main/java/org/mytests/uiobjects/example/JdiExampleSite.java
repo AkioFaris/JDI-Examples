@@ -1,6 +1,7 @@
 package org.mytests.uiobjects.example;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Label;
+import com.epam.jdi.uitests.web.selenium.elements.composite.Pagination;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JSite;
 import org.mytests.uiobjects.example.entities.User;
@@ -9,6 +10,7 @@ import org.mytests.uiobjects.example.pages.*;
 import org.mytests.uiobjects.example.sections.Header;
 import org.mytests.uiobjects.example.sections.LeftSection;
 import org.mytests.uiobjects.example.sections.RightSection;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -18,11 +20,24 @@ public class JdiExampleSite extends WebSite {
     public static DatesPage datesPage;
     public static ContactFormPage contactFormPage;
     public static MetalsNColorsPage metalsNColorsPage;
+    public static SimpleTablePage simpleTablePage;
     public static Header header;
     public static DifferentElementsPage diffElementsPage;
     public static LeftSection leftSection;
     public static RightSection rightSection;
 
+    //public static JdiPagination pagination;
+    /*final static public Pagination pagination = new Pagination(
+            By.cssSelector(".uui-pagination li"), By.cssSelector(".uui-pagination .next a"),
+            By.cssSelector(".uui-pagination .prev a"), By.cssSelector(".uui-pagination .first a"),
+            By.cssSelector(".uui-pagination .last a")
+    );*/
+   /* public static Pagination pagination = new Pagination(By.cssSelector(".uui-pagination .next a"),
+            By.cssSelector(".uui-pagination .prev a")
+    );*/
+    public static Pagination pagination = new Pagination(By.cssSelector(".uui-pagination .next a"),
+            By.cssSelector(".uui-pagination .prev a")
+    );
 
     private static LoginForm loginForm;
 
