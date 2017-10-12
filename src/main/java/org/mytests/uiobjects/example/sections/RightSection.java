@@ -26,18 +26,6 @@ public class RightSection extends Section {
         org.testng.Assert.assertTrue(result.isDisplayed());
     }
 
-    public Boolean checkResultContainsOptionalFields(DatesData datesData) {
-        return checkResultContains(datesData.description) && checkResultContains(datesData.time);
-//       && checkResultContains(datesData.date) && checkResultContains(Integer.toString(datesData.range2.from))
-// && checkResultContains(Integer.toString(datesData.range2.to));
-    }
-
-
-    public Boolean checkResultContainsMandatoryFields(DatesData datesData) {
-        return checkResultContains(datesData.name) && checkResultContains(datesData.lastName);
-//  &&      checkResultContains(Integer.toString(datesData.range1.from))
-//   &&     checkResultContains(Integer.toString(datesData.range1.to));
-    }
 
     public Boolean checkResultContains(String text) {
         List<String> results = resultList.getTextList();

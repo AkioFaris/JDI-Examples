@@ -4,7 +4,7 @@ import org.mytests.tests.InitTests;
 import org.mytests.uiobjects.example.entities.DatesData;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.JdiExampleSite.*;
 import static org.mytests.uiobjects.example.enums.DatesDataValues.CORRECT;
 import static org.mytests.uiobjects.example.enums.MenuOptions.CONTACT_FORM;
 

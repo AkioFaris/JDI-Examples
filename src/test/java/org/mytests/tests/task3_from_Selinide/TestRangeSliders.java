@@ -5,7 +5,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.JdiExampleSite.*;
 
 public class TestRangeSliders extends InitTests {
 
@@ -39,7 +39,7 @@ public class TestRangeSliders extends InitTests {
     @Test(dataProvider = "slidersPositions")
     public void checkRangeSliders(int leftSliderPos, int rightSliderPos) {
         // Set left and right sliders to their positions accordingly
-        datesPage.setSliders(leftSliderPos, rightSliderPos);
-        datesPage.checkSliders(leftSliderPos, rightSliderPos);
+        datesPage.datesForm.setSliders(leftSliderPos, rightSliderPos);
+        datesPage.datesForm.checkSliders(leftSliderPos, rightSliderPos);
     }
 }

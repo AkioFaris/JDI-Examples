@@ -3,9 +3,9 @@ package org.mytests.uiobjects.example.enums;
 import org.mytests.uiobjects.example.entities.DatesData;
 
 public enum DatesDataValues {
-    CORRECT("Stefani", "Nkodia", 20, 50, "EPAM's student.", 0, 0, "6:30 PM", "09/28/2017"),
+    CORRECT("Stefani", "Nkodia", 20, 50, "EPAM's student.", 30, 70, "6:30 PM", "09/28/2017"),
     INCORRECT(" ➄ ste f ani", "Nk ➄di ➄", -30, -50, " ➄ ➄ ➄", 50, 20, "time", "date"),
-    EMPTY("", "", 0, 0, "", 0, 0, "", "");
+    EMPTY("", "", 0, 0, "", 20, 100, "", "");
 
     public final DatesData data;
 

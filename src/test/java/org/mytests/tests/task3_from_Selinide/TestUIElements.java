@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.*;
+import static org.mytests.uiobjects.example.JdiExampleSite.*;
 import static org.mytests.uiobjects.example.enums.Colors.*;
 import static org.mytests.uiobjects.example.enums.Conditions.*;
 import static org.mytests.uiobjects.example.enums.Metals.*;

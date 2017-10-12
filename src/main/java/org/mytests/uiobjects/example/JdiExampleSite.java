@@ -16,7 +16,7 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
 @JSite(domain = "https://epam.github.io/JDI/")
-public class JDIExampleSite extends WebSite {
+public class JdiExampleSite extends WebSite {
     public static HomePage homePage;
     public static DatesPage datesPage;
     public static ContactFormPage contactFormPage;

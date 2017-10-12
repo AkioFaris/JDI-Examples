@@ -14,22 +14,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import static org.mytests.uiobjects.example.JDIExampleSite.leftSection;
-import static org.mytests.uiobjects.example.JDIExampleSite.rightSection;
+import static org.mytests.uiobjects.example.JdiExampleSite.leftSection;
+import static org.mytests.uiobjects.example.JdiExampleSite.rightSection;
 
 
 @JPage(url = "/page8.htm", title = "Different Element")
 public class DifferentElementsPage extends WebPage {
     @FindBy(css = ".label-checkbox input")
     private Elements<CheckBox> checkboxes;
-
-     /*@FindBy(css = ".label-checkbox")
-    public ICheckList<Conditions> checkboxes = new CheckList<Conditions>() {
-        @Override
-        protected boolean isSelectedAction(WebElement el) {
-            return el.findElement(By.tagName("input")).getAttribute("checked") != null;
-        }
-    };*/
 
     @FindBy(css = "label.label-radio input")
     private RadioButtons<Metals> radioButtons;
@@ -60,12 +52,9 @@ public class DifferentElementsPage extends WebPage {
 
     public void selectCheckbox(Conditions checkboxLabel) {
         checkboxes.get(checkboxLabel.ordinal()).check();
-//        checkboxes.check(checkboxLabel);
-
     }
 
     public void deselectCheckbox(Conditions checkboxLabel) {
-//        checkboxes.uncheck(checkboxLabel);
         checkboxes.get(checkboxLabel.ordinal()).uncheck();
     }
 
