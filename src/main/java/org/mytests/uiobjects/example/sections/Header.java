@@ -1,5 +1,6 @@
 package org.mytests.uiobjects.example.sections;
 
+import com.epam.jdi.uitests.core.interfaces.complex.IDropDown;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Dropdown;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
@@ -15,10 +16,10 @@ import static org.mytests.uiobjects.example.enums.MenuOptions.*;
 
 public class Header extends Section {
     @FindBy(css = ".uui-navigation.nav.navbar-nav.m-l8 li a")
-    private Menu menu;
+    private Menu<MenuOptions> menu;
 
     @FindBy(css = ".dropdown-menu li a")
-    private Dropdown<MenuOptions> serviceOptions;
+    private IDropDown<MenuOptions> serviceOptions;
 
     @FindBy(css = ".profile-photo span")
     private Text profile;
@@ -27,7 +28,7 @@ public class Header extends Section {
         menu.clickOn(menuItems[0].getLabel().toUpperCase());
 
         if (menuItems.length == 2) {
-            menu.clickOn(menuItems[1].getLabel().toUpperCase());
+            serviceOptions.select(menuItems[1].getLabel().toUpperCase());
         }
     }
 

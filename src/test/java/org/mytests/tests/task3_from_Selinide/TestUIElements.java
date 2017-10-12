@@ -3,6 +3,7 @@ package org.mytests.tests.task3_from_Selinide;
 import org.mytests.tests.InitTests;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Conditions;
+import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.mytests.uiobjects.example.enums.Metals;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -11,6 +12,7 @@ import org.testng.annotations.Test;
 import static org.mytests.uiobjects.example.JdiExampleSite.*;
 import static org.mytests.uiobjects.example.enums.Colors.*;
 import static org.mytests.uiobjects.example.enums.Conditions.*;
+import static org.mytests.uiobjects.example.enums.MenuOptions.*;
 import static org.mytests.uiobjects.example.enums.Metals.*;
 
 public class TestUIElements extends InitTests {
@@ -35,7 +37,7 @@ public class TestUIElements extends InitTests {
     @Test
     public void checkExistenceOfElements() {
         //1 Open test site by URL
-        homePage.open();
+        header.open(HOME);
 
         //2 Assert User name in the left-top side of screen that user is logged in
         verifyLogin();
@@ -53,8 +55,7 @@ public class TestUIElements extends InitTests {
     @Test(dataProvider = "conditionsMetalColorData")
     public void checkSelectorsAndCheckers(Conditions condition1, Conditions condition2, Metals metal, Colors color) {
         //1 Open through the header menu Service -> Different Elements PageObject
-//        header.open(SERVICE, DIFF_EL);
-        diffElementsPage.open();
+        header.open(SERVICE, DIFF_EL);
 
         //2 Check interface on Service page, it contains all needed elements.
         diffElementsPage.checkInterface();

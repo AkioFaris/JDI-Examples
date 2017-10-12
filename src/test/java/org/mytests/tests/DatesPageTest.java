@@ -2,6 +2,7 @@ package org.mytests.tests;
 
 import org.mytests.uiobjects.example.entities.DatesData;
 import org.mytests.uiobjects.example.entities.Range;
+import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -11,6 +12,7 @@ import ru.yandex.qatools.allure.annotations.Description;
 
 import static org.mytests.uiobjects.example.JdiExampleSite.*;
 import static org.mytests.uiobjects.example.enums.DatesDataValues.*;
+import static org.mytests.uiobjects.example.enums.MenuOptions.*;
 
 public class DatesPageTest extends InitTests {
 
@@ -35,7 +37,7 @@ public class DatesPageTest extends InitTests {
 
     @BeforeMethod
     public void openDatesPage() {
-        datesPage.open();
+        header.open(SERVICE, DATES);
     }
 
     @Test

@@ -6,6 +6,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.mytests.uiobjects.example.JdiExampleSite.*;
+import static org.mytests.uiobjects.example.enums.MenuOptions.DATES;
+import static org.mytests.uiobjects.example.enums.MenuOptions.SERVICE;
 
 public class TestRangeSliders extends InitTests {
 
@@ -32,8 +34,7 @@ public class TestRangeSliders extends InitTests {
         verifyLogin();
 
         // Open Service ->Dates
-        datesPage.open();
-//        header.open(DATES);
+        header.open(SERVICE, DATES);
     }
 
     @Test(dataProvider = "slidersPositions")
