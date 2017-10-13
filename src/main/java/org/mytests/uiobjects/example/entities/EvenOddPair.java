@@ -4,8 +4,8 @@ import org.mytests.uiobjects.example.enums.Even;
 import org.mytests.uiobjects.example.enums.Odd;
 
 public class EvenOddPair {
-    public Even even;
-    public Odd odd;
+    public final Even even;
+    public final Odd odd;
 
     public EvenOddPair(Even even, Odd odd) {
         this.even = even;

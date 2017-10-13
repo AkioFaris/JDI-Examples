@@ -2,7 +2,6 @@ package org.mytests.tests;
 
 import org.mytests.uiobjects.example.entities.DatesData;
 import org.mytests.uiobjects.example.entities.Range;
-import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -52,6 +51,7 @@ public class DatesPageTest extends InitTests {
     public void checkFillMandatoryFields() {
         DatesData datesData = new DatesData(CORRECT.data);
         datesPage.datesForm.onlyMandatory().fill(datesData);
+        datesPage.datesForm.fillRange1(datesData);
     }
 
     @Test

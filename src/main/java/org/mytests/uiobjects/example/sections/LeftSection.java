@@ -19,7 +19,7 @@ public class LeftSection extends Section {
     @FindBy(css = ".sub-menu li a")
     private IDropDown<MenuOptions> serviceOptions;
 
-    public void open(MenuOptions... menuItems) {
+    private void open(MenuOptions... menuItems) {
         menu.clickOn(menuItems[0].getLabel());
         if (menuItems.length == 2) {
             serviceOptions.select(menuItems[1].getLabel());

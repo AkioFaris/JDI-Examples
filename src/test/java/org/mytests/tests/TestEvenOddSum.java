@@ -1,20 +1,15 @@
 package org.mytests.tests;
 
-import org.mytests.uiobjects.example.entities.DatesData;
 import org.mytests.uiobjects.example.entities.EvenOddPair;
-import org.mytests.uiobjects.example.entities.Range;
 import org.mytests.uiobjects.example.enums.Even;
 import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.mytests.uiobjects.example.enums.Odd;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Description;
 
 import static org.mytests.uiobjects.example.JdiExampleSite.*;
-import static org.mytests.uiobjects.example.enums.DatesDataValues.*;
 import static org.mytests.uiobjects.example.enums.Even.*;
 import static org.mytests.uiobjects.example.enums.Odd.*;
 
@@ -39,7 +34,7 @@ public class TestEvenOddSum extends InitTests {
 
     @BeforeMethod
     public void openMetalsNColorsPage() {
-        header.open(MenuOptions.METALS_AND_COLORS);
+        metalsNColorsPage.open();
     }
 
     @Test(dataProvider = "evenOddSumData")

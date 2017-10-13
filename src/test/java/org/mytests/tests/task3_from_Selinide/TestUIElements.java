@@ -3,7 +3,6 @@ package org.mytests.tests.task3_from_Selinide;
 import org.mytests.tests.InitTests;
 import org.mytests.uiobjects.example.enums.Colors;
 import org.mytests.uiobjects.example.enums.Conditions;
-import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.mytests.uiobjects.example.enums.Metals;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;

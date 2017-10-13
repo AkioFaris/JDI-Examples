@@ -3,7 +3,6 @@ package org.mytests.uiobjects.example.sections;
 import com.epam.jdi.uitests.core.interfaces.complex.ITextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.web.matcher.testng.Assert;
-import org.mytests.uiobjects.example.entities.DatesData;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;

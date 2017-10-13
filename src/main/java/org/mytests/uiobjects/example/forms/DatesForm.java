@@ -55,14 +55,19 @@ public class DatesForm extends Form<DatesData> {
         super.filter(filter);
     }
 
+    public void fillRange1(DatesData datesData)
+    {
+        range1.get(0).sendKeys(String.valueOf(datesData.range1.from));
+        range1.get(1).sendKeys(String.valueOf(datesData.range1.to));
+    }
+
     @Override
     public void submit(DatesData datesData) {
         if(currentFilter != MANDATORY) {
             setSliders(datesData.range2.from, datesData.range2.to);
         }
         if(currentFilter != OPTIONAL) {
-            range1.get(0).sendKeys(String.valueOf(datesData.range1.from));
-            range1.get(1).sendKeys(String.valueOf(datesData.range1.to));
+            fillRange1(datesData);
         }
         super.submit(datesData);
     }
