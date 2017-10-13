@@ -7,6 +7,7 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.EnumSet;
 import java.util.Set;
@@ -23,6 +24,7 @@ public class Header extends Section {
     @FindBy(css = ".profile-photo span")
     private Text profile;
 
+    @Step("Open page by the header")
     public void open(MenuOptions... menuItems) {
         menu.clickOn(menuItems[0].getLabel().toUpperCase());
 
@@ -31,10 +33,12 @@ public class Header extends Section {
         }
     }
 
+    @Step
     public void verifyLogin(String userName) {
         Assert.assertEquals(profile.getText(), userName);
     }
 
+    @Step
     public void checkServiceOptions() {
         open(SERVICE);
         Set<MenuOptions> serviceOptionsSet = EnumSet.of(SUPPORT, DATES, COMPLEX_TBL, SIMPLE_TBL, PAGES_TBL, DIFF_EL);

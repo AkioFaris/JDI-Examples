@@ -37,7 +37,7 @@ public class SimpleTableTest extends InitTests {
         header.open(SERVICE, SIMPLE_TBL);
     }
 
-    @Test(dataProvider = "simpleTableValues")
+    @Test(dataProvider = "simpleTableValues", groups = "Smoke")
     public void checkClickOnSell(String[] cellValues) {
         for (String cellValue : cellValues) {
             simpleTablePage.tableCell.get(cellValue).click();

@@ -2,7 +2,6 @@ package org.mytests.tests;
 
 import org.mytests.uiobjects.example.entities.EvenOddPair;
 import org.mytests.uiobjects.example.enums.Even;
-import org.mytests.uiobjects.example.enums.MenuOptions;
 import org.mytests.uiobjects.example.enums.Odd;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -40,7 +39,7 @@ public class TestEvenOddSum extends InitTests {
     @Test(dataProvider = "evenOddSumData")
     public void checkCalculateSum(Even even, Odd odd) {
         EvenOddPair pair = new EvenOddPair(even, odd);
-        metalsNColorsPage.evenOddCalcForm.submit(pair);
+        metalsNColorsPage.metalsNColorsForm.evenOddCalcForm.submit(pair);
         metalsNColorsPage.checkCalcResult(pair);
     }
 }

@@ -8,13 +8,13 @@ import org.openqa.selenium.support.FindBy;
 
 
 public class ContactForm extends Form<DatesData> {
-    @FindBy(id="Name")
+    @FindBy(id = "Name")
     public TextField name;
 
-    @FindBy(id="LastName")
+    @FindBy(id = "LastName")
     public TextField lastName;
 
-    @FindBy(css=".col-sm-6.text-right [type=submit]")
+    @FindBy(css = ".col-sm-6.text-right [type=submit]")
     public Button submit;
 
 }

@@ -39,6 +39,7 @@ public class JdiExampleSite extends WebSite {
         loginForm.loginAs(new User());
     }
 
+    @Step
     public static void verifyLogin() {
         header.verifyLogin((new User()).name.toUpperCase());
     }

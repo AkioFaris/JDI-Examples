@@ -33,7 +33,7 @@ public class TestUIElements extends InitTests {
         login();
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void checkExistenceOfElements() {
         //1 Open test site by URL
         header.open(HOME);

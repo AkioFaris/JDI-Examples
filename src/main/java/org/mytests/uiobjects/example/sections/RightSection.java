@@ -4,6 +4,7 @@ import com.epam.jdi.uitests.core.interfaces.complex.ITextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.web.matcher.testng.Assert;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
 
@@ -20,12 +21,13 @@ public class RightSection extends Section {
     @FindBy(css = ".panel-body-list.results li")
     private ITextList resultList;
 
+    @Step("Check existence of right sections's elements")
     public void checkInterface() {
         org.testng.Assert.assertTrue(log.isDisplayed());
         org.testng.Assert.assertTrue(result.isDisplayed());
     }
 
-
+    @Step("Check if the result section contains {0}")
     public Boolean checkResultContains(String text) {
         List<String> results = resultList.getTextList();
         int occurrences = 0;
@@ -36,10 +38,12 @@ public class RightSection extends Section {
         return (occurrences > 0);
     }
 
+    @Step("Verify if the result section contains {0}")
     public void verifyResultContains(String text) {
         Assert.assertTrue(checkResultContains(text));
     }
 
+    @Step("Check if the log contains {0}")
     private Boolean checkLogContains(String text) {
         List<String> logs = logList.getTextList();
         int occurrences = 0;
@@ -50,6 +54,7 @@ public class RightSection extends Section {
         return occurrences > 0;
     }
 
+    @Step("Verify if the log section contains {0}")
     public void verifyLogContains(String text) {
         List<String> logs = logList.getTextList();
         int occurrences = 0;
@@ -60,6 +65,7 @@ public class RightSection extends Section {
         Assert.assertTrue(checkLogContains(text));
     }
 
+    @Step("Check if the log contains {0} with status {1}")
     public Boolean checkLogStatus(String text, Boolean status) {
         List<String> logs = logList.getTextList();
         for (String log : logs) {

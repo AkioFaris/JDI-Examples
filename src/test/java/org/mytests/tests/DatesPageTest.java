@@ -1,17 +1,16 @@
 package org.mytests.tests;
 
+import com.epam.jdi.uitests.core.interfaces.complex.FormFilters;
 import org.mytests.uiobjects.example.entities.DatesData;
-import org.mytests.uiobjects.example.entities.Range;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.Description;
 
+import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.ALL;
 import static org.mytests.uiobjects.example.JdiExampleSite.*;
 import static org.mytests.uiobjects.example.enums.DatesDataValues.*;
-import static org.mytests.uiobjects.example.enums.MenuOptions.*;
+import static org.mytests.uiobjects.example.enums.MenuOptions.DATES;
+import static org.mytests.uiobjects.example.enums.MenuOptions.SERVICE;
 
 public class DatesPageTest extends InitTests {
 
@@ -19,11 +18,16 @@ public class DatesPageTest extends InitTests {
     public static Object[][] incorrectDatesData() {
         return new Object[][]{
                 // name, lastName, range1, time, date
-                {INCORRECT.data.name, CORRECT.data.lastName, CORRECT.data.range1, CORRECT.data.time, CORRECT.data.date},
-                {CORRECT.data.name, INCORRECT.data.lastName, CORRECT.data.range1, CORRECT.data.time, CORRECT.data.date},
-                {CORRECT.data.name, CORRECT.data.lastName, INCORRECT.data.range1, CORRECT.data.time, CORRECT.data.date},
-                {CORRECT.data.name, CORRECT.data.lastName, CORRECT.data.range1, INCORRECT.data.time, CORRECT.data.date},
-                {CORRECT.data.name, CORRECT.data.lastName, CORRECT.data.range1, CORRECT.data.time, INCORRECT.data.date},
+                {new DatesData(INCORRECT.data.name, CORRECT.data.lastName, CORRECT.data.range1, EMPTY.data.description,
+                        CORRECT.data.range2, CORRECT.data.time, CORRECT.data.date)},
+                {new DatesData(CORRECT.data.name, INCORRECT.data.lastName, CORRECT.data.range1, EMPTY.data.description,
+                        CORRECT.data.range2, CORRECT.data.time, CORRECT.data.date)},
+                {new DatesData(CORRECT.data.name, CORRECT.data.lastName, INCORRECT.data.range1, EMPTY.data.description,
+                        CORRECT.data.range2, CORRECT.data.time, CORRECT.data.date)},
+                {new DatesData(CORRECT.data.name, CORRECT.data.lastName, CORRECT.data.range1, EMPTY.data.description,
+                        CORRECT.data.range2, INCORRECT.data.time, CORRECT.data.date)},
+                {new DatesData(CORRECT.data.name, CORRECT.data.lastName, CORRECT.data.range1, EMPTY.data.description,
+                        CORRECT.data.range2, CORRECT.data.time, INCORRECT.data.date)},
 
         };
     }
@@ -42,6 +46,7 @@ public class DatesPageTest extends InitTests {
     @Test
     public void checkSubmitAllFields() {
         DatesData datesData = new DatesData(CORRECT.data);
+        datesPage.datesForm.filter(ALL);
         datesPage.datesForm.submit(datesData);
         Assert.assertTrue(datesPage.checkResultContainsMandatoryFields(datesData) &&
                 datesPage.checkResultContainsOptionalFields(datesData));
@@ -70,10 +75,7 @@ public class DatesPageTest extends InitTests {
 
     @Description("This test is expected to be failed because of a bug on the JDI test site.")
     @Test(dataProvider = "incorrectDatesData")
-    public void checkSubmitIncorrectData(String name, String lastName, Range range1,
-                                         String time, String date) {
-        DatesData datesData = new DatesData(name, lastName, range1, EMPTY.data.description, CORRECT.data.range2,
-                time, date);
+    public void checkSubmitIncorrectData(DatesData datesData) {
         datesPage.datesForm.submit(datesData);
         Assert.assertTrue(rightSection.checkResultContains("Error")
                 || rightSection.checkResultContains("Error".toUpperCase())

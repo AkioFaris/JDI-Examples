@@ -47,7 +47,7 @@ public class TestPagination extends InitTests {
     }
 
 
-    @Test()
+    @Test(groups = "Smoke")
     public void checkClickOnPages() {
         for (PageIndices page: PageIndices.values()) {
             pagination.selectPage(page.index);

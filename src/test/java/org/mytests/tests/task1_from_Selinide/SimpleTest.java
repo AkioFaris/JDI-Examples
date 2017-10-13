@@ -11,7 +11,7 @@ import static org.mytests.uiobjects.example.enums.MenuOptions.CONTACT_FORM;
 
 public class SimpleTest extends InitTests {
 
-    @Test(groups = "Smoke")
+    @Test(groups = {"Smoke", "Regression"})
     public void verifyLoginAndContactSubmitting() {
 //1 Open test site by URL
         homePage.open();

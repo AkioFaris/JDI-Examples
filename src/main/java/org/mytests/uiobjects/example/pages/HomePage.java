@@ -8,6 +8,7 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @JPage(url = "/index.htm", title = "Index Page")
 public class HomePage extends WebPage {
@@ -23,6 +24,7 @@ public class HomePage extends WebPage {
     @FindBy(css = ".main-txt")
     private Text mainText;
 
+    @Step("Check existence of elements")
     public void checkInterface() {
         Assert.assertTrue(pictures.isDisplayed());
         Assert.assertTrue(picLabels.isDisplayed());

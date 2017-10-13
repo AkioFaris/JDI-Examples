@@ -5,6 +5,7 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.Elements;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Pagination;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 public class JdiPagination extends Pagination {
     @FindBy(css = ".uui-pagination .next a")
@@ -22,6 +23,7 @@ public class JdiPagination extends Pagination {
     @FindBy(css = ".uui-pagination a")
     private Elements<Button> pages;
 
+    @Step("Open page {0} by clicking on the pagination")
     @Override
     public void selectPage(int index) {
         pages.get(String.valueOf(index)).click();

@@ -8,10 +8,9 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import org.mytests.uiobjects.example.entities.DatesData;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
-import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.ALL;
-import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.MANDATORY;
-import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.OPTIONAL;
+import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.*;
 
 
 public class DatesForm extends Form<DatesData> {
@@ -40,7 +39,7 @@ public class DatesForm extends Form<DatesData> {
     @FindBy(id = "timepicker")
     private TextField time;
 
-    @FindBy(css ="#datepicker input")
+    @FindBy(css = "#datepicker input")
     private DatePicker date;
 
     @FindBy(css = ".m-t35[type=submit]")
@@ -49,24 +48,25 @@ public class DatesForm extends Form<DatesData> {
     private FormFilters currentFilter = ALL;
 
     @Override
-    public void filter(FormFilters filter)
-    {
+    public void filter(FormFilters filter) {
         currentFilter = filter;
         super.filter(filter);
     }
 
-    public void fillRange1(DatesData datesData)
-    {
+    public void fillRange1(DatesData datesData) {
+        range1.get(0).clear();
         range1.get(0).sendKeys(String.valueOf(datesData.range1.from));
+        range1.get(1).clear();
         range1.get(1).sendKeys(String.valueOf(datesData.range1.to));
     }
 
     @Override
+    @Step("Submit dates data to dates form")
     public void submit(DatesData datesData) {
-        if(currentFilter != MANDATORY) {
+        if (currentFilter != MANDATORY) {
             setSliders(datesData.range2.from, datesData.range2.to);
         }
-        if(currentFilter != OPTIONAL) {
+        if (currentFilter != OPTIONAL) {
             fillRange1(datesData);
         }
         super.submit(datesData);
@@ -75,8 +75,6 @@ public class DatesForm extends Form<DatesData> {
     public void submit() {
         submit.click();
     }
-
-
 
     private Double getStepInPixels() {
         return sliderTrack.getWebElement().getSize().width / 100.0;
@@ -112,6 +110,7 @@ public class DatesForm extends Form<DatesData> {
         correctPosition(slider, position);
     }
 
+    @Step("Set the left slider to {0} and the right slider to {1}")
     public void setSliders(int leftSliderPos, int rightSliderPos) {
         if (rightSliderPos < leftSliderPos)
             return;
@@ -124,6 +123,7 @@ public class DatesForm extends Form<DatesData> {
         }
     }
 
+    @Step("Verify that the left slider is set to {0} and the right slider is set to {1}")
     public void checkSliders(int leftSliderPos, int rightSliderPos) {
         Assert.assertEquals(range2.get(0).getText(), Integer.toString(leftSliderPos));
         Assert.assertEquals(range2.get(1).getText(), Integer.toString(rightSliderPos));

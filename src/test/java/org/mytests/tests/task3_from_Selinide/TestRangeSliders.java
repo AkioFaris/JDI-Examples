@@ -37,7 +37,7 @@ public class TestRangeSliders extends InitTests {
         header.open(SERVICE, DATES);
     }
 
-    @Test(dataProvider = "slidersPositions")
+    @Test(dataProvider = "slidersPositions", groups = "Regression")
     public void checkRangeSliders(int leftSliderPos, int rightSliderPos) {
         // Set left and right sliders to their positions accordingly
         datesPage.datesForm.setSliders(leftSliderPos, rightSliderPos);

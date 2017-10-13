@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test suite" thread-count="1">
+    <test name="Regression" >
+        <groups>
+            <run>
+                <include name="Regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name = "org.mytests.tests.task1_from_Selinide.SimpleTest"/>
+            <class name = "org.mytests.tests.task3_from_Selinide.TestUIElements"/>
+            <class name = "org.mytests.tests.task3_from_Selinide.TestRangeSliders"/>
+        </classes>
+    </test>
+</suite>
